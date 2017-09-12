@@ -1,0 +1,13 @@
+[
+  {
+    "icon": "",
+    "title": "店铺",
+    "ord": 1,
+    "subs": [
+      {
+        "title": "店铺信息",
+        "path": "shop/info"
+      }
+    ]
+  }
+]
