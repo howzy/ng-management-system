@@ -1,0 +1,79 @@
+<nz-layout class="layout" style="height: 638px;">
+  <nz-header>
+    <!--<div class="logo"><img src="assets/imgs/logo.png"></div>-->
+    <div class="logo"></div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;float: right">
+      <li nz-menu-item class="user">
+        <nz-dropdown nz-dropdown [nzPlacement]="'bottomRight'" [nzTrigger]="'hover'">
+          <img class="avatar" src="assets/imgs/avatar.jpg">
+          <span>admin</span>
+          <ul nz-menu>
+            <li nz-menu-item>
+              <a href="javascript:0">用户中心</a>
+            </li>
+            <li nz-menu-divider></li>
+            <li nz-menu-item>
+              <a href="javascript:0">退出</a>
+            </li>
+          </ul>
+        </nz-dropdown>
+      </li>
+    </ul>
+  </nz-header>
+  <nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed">
+      <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu>
+          <span title>
+            <i class="anticon anticon-appstore"></i>
+            <span>店铺</span>
+          </span>
+          <ul>
+            <li nz-menu-item>店铺信息</li>
+            <li nz-menu-item>门店分类</li>
+            <li nz-menu-item>门店管理</li>
+            <li nz-menu-item>店铺客服</li>
+            <li nz-menu-item>首页轮播</li>
+            <li nz-menu-item>首页按钮</li>
+            <li nz-menu-item>店铺链接</li>
+            <li nz-menu-item>店铺专题</li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title>
+            <i class="anticon anticon-appstore"></i>
+            <span>商品</span>
+          </span>
+          <ul>
+            <li nz-menu-item>添加商品</li>
+            <li nz-menu-item>待售商品</li>
+            <li nz-menu-item>出售中商品</li>
+            <li nz-menu-item>已售罄商品</li>
+            <li nz-submenu>
+              <span title>
+                商品分类
+              </span>
+              <ul>
+                <li nz-menu-item>规格分类</li>
+                <li nz-menu-item>品牌设置</li>
+                <li nz-menu-item>品牌分组</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title>
+            <i class="anticon anticon-setting"></i>
+            <span>订单</span>
+          </span>
+          <ul>
+            <li nz-menu-item>订单概况</li>
+            <li nz-menu-item>销售订单</li>
+            <li nz-menu-item>售后订单</li>
+            <li nz-menu-item>批量发货</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+  </nz-layout>
+</nz-layout>
