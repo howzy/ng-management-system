@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { AppComponent } from './app.component';
+import { LoginModule } from './login/login.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
+    LoginModule,
     AppRoutingModule
   ],
   providers: [],
