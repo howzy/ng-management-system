@@ -11,13 +11,15 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    debugger;
-    this.loginService.currentUser
-      .subscribe(data => {
-        if (data) {
-          return true;
-        }
-      })
+    // 当前的路由地址
+    let url: string = state.url;
+    this.loginService.redirectUrl = url;
+
+    let user = sessionStorage.getItem('currentUser');
+    if (user) {
+      return true;
+    }
+    // 否则跳转登录页面
     this.router.navigate(['/login']);
     return false;
   }

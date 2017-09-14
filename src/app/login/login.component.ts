@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { User } from './model/user';
 import { LoginService } from './services/login.service';
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,8 +33,12 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
-    this.loginService.login(this.loginForm.value);
     this.userInfo = this.loginForm.value;
+    this.loginService.login(this.loginForm.value);
+    
+    // 重定向到跳转登录页面时的路径
+    let redirectUrl = this.loginService.redirectUrl || '/';
+    this.router.navigate([redirectUrl]);
   }
 
 }
