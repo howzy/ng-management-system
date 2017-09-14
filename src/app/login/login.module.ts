@@ -5,6 +5,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login-routing.module';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { LoginRoutingModule } from './login-routing.module';
     NgZorroAntdModule.forRoot(),
     LoginRoutingModule
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent],
+  providers: [LoginService]
 })
 export class LoginModule { }
