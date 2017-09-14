@@ -6,7 +6,7 @@
   margin: 16px 28px 16px 0;
   float: left;
 }
-.user {
+#header .user {
   padding: 0 5px;
   height: 64px;
   background: none;
