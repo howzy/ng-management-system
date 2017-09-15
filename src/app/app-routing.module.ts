@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './login/services/auth-guard.service';
 import { HomeComponent } from './home/home.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,11 @@ import { HomeComponent } from './home/home.component';
       {
         path: '',
         component: HomeComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'user-profile',
+        component: UserProfileComponent,
         canActivate: [AuthGuard]
       },
       {

@@ -10,13 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HomeComponent } from './home/home.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SideBarComponent,
-    HomeComponent
+    HomeComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

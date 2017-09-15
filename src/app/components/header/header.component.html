@@ -8,7 +8,7 @@
         <span>{{ user.userName }}</span>
         <ul nz-menu>
           <li nz-menu-item>
-            <a href="javascript:0">用户中心</a>
+            <a (click)="goToUserProfile()" >用户中心</a>
           </li>
           <li nz-menu-divider></li>
           <li nz-menu-item>

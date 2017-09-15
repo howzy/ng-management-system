@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { NzModalService } from 'ng-zorro-antd';
 
 import { User } from '../../login/model/user';
 import { LoginService } from '../../login/services/login.service';
@@ -14,14 +15,24 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private confirmServ: NzModalService
   ) { }
 
   ngOnInit() {
   }
 
+  goToUserProfile() {
+    this.router.navigate(['/user-profile']);
+  }
+
   logout() {
-    this.loginService.logout();
-    this.router.navigate(['/login']);
+    this.confirmServ.confirm({
+      title: '您是否确认要注销？',
+      onOk: () => {
+        this.loginService.logout();
+        this.router.navigate(['/login']);
+      }
+    })
   }
 }
