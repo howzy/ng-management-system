@@ -4,7 +4,7 @@
   <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;float: right">
     <li nz-menu-item class="user">
       <nz-dropdown nz-dropdown [nzPlacement]="'bottomRight'" [nzTrigger]="'hover'">
-        <img class="avatar" src="assets/imgs/avatar.jpg">
+        <img class="avatar" [src]="user.headImgUrl">
         <span>{{ user.userName }}</span>
         <ul nz-menu>
           <li nz-menu-item>

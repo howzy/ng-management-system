@@ -18,8 +18,15 @@ export class LoginService {
 
   login(user: User) {
     if (user) {
-      sessionStorage.setItem('currentUser', JSON.stringify(user));
-      this.subject.next(Object.assign({},user));
+      let cur: User = Object.assign({
+        id: '001',
+        token: 'fake-jwt-token',
+        headImgUrl: 'assets/imgs/avatar.jpg',
+        permissions: [],
+        roles: ''
+      }, user);
+      sessionStorage.setItem('currentUser', JSON.stringify(cur));
+      this.subject.next(Object.assign({},cur));
     }
   }
 

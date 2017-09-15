@@ -1,10 +1,10 @@
 <nz-layout class="layout">
   <!--顶部菜单栏-->
-  <app-header *ngIf="user && user.userName" [user]="user"></app-header>
+  <app-header *ngIf="user && user.token" [user]="user"></app-header>
 
   <nz-layout style="flex-direction: row;">
     <!--侧边菜单栏-->
-    <app-side-bar *ngIf="user && user.userName"></app-side-bar>
+    <app-side-bar *ngIf="user && user.token"></app-side-bar>
 
     <nz-content style="background:#fff; padding: 24px; min-height: 280px; font-size: 16px;">
       <router-outlet></router-outlet>

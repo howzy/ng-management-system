@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('currentUser'));
     this.loginService.currentUser().subscribe(user => {
-      console.log(user);
       this.user = user;
     })
   }
