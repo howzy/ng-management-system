@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     HeaderComponent,
     SideBarComponent,
     HomeComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
