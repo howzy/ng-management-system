@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
+import { NzNotificationService } from 'ng-zorro-antd';
 import { fadeIn } from '../animations/fade-in';
 import { User } from '../login/model/user';
 import { LoginService } from '../login/services/login.service';
@@ -22,7 +23,8 @@ export class UserProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private location: Location,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private notificationServ: NzNotificationService
   ) { }
 
   ngOnInit() {
@@ -33,7 +35,7 @@ export class UserProfileComponent implements OnInit {
   buildForm() {
     this.userProfileForm = this.fb.group({
       userName: [ this.user.userName, [ Validators.required ] ],
-      password: [ this.user.password, [ Validators.required ] ],
+      password: [ null, [ Validators.required ] ],
       checkPassword: [ this.checkPassword, [ Validators.required, this.confirmationValidator ] ],
       phonePrefix: [ '+86' ],
       phone: [ null, [ Validators.required ] ],
@@ -80,6 +82,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   submitForm() {
+    this.notificationServ.create('success', '用户中心', '个人信息修改成功');
     this.location.back();
   }
 
