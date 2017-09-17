@@ -1,4 +1,10 @@
 <div class="user-profile-container" [@fadeIn]>
+  <nz-breadcrumb style="margin: 24px 0 16px;">
+    <nz-breadcrumb-item>
+      <i class="anticon anticon-user"></i>
+      <span>用户中心</span>
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
   <form nz-form [formGroup]="userProfileForm" (ngSubmit)="submitForm()">
     <div nz-form-item nz-row>
       <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
