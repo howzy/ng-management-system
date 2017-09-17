@@ -1,5 +1,10 @@
-<nz-breadcrumb style="margin: 24px 0 16px;">
-  <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-  <nz-breadcrumb-item>List</nz-breadcrumb-item>
-  <nz-breadcrumb-item>App</nz-breadcrumb-item>
-</nz-breadcrumb>
+<div class="breadcrumb-container" [@fadeIn]>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <i class="anticon" [ngClass]="menu.icon"></i>
+      <span>{{ menu.title }}</span>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>{{ menu.subTitle }}</nz-breadcrumb-item>
+    <nz-breadcrumb-item *ngIf="menu.tertiaryTitle">{{ menu.tertiaryTitle }}</nz-breadcrumb-item>
+  </nz-breadcrumb>
+</div>

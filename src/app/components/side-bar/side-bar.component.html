@@ -8,7 +8,7 @@
       <ul>
         <ng-container *ngFor="let subItem of item?.subs;let i = index;">
           <li nz-menu-item *ngIf="!subItem?.subs" (click)="selectMenu(item, i)" >
-            <a [routerLink]="[subItem.path]">{{i}} - {{ subItem?.title }}</a>
+            <a [routerLink]="[subItem.path]">{{ subItem?.title }}</a>
           </li>
           <li nz-submenu *ngIf="subItem?.subs">
             <span title>
