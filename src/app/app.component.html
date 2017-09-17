@@ -6,15 +6,12 @@
     <!--侧边菜单栏-->
     <app-side-bar *ngIf="user && user.token"></app-side-bar>
 
-    <nz-layout style="background: #fff; padding: 0 24px 24px; overflow: auto;">
+    <!--面包屑导航-->
+    <!-- <app-breadcrumb></app-breadcrumb> -->
 
-      <!--面包屑导航-->
-      <app-breadcrumb></app-breadcrumb>
-
-      <!--主体内容-->
-      <nz-content style="min-height: 280px; font-size: 16px;">
-        <router-outlet></router-outlet>
-      </nz-content>
-    </nz-layout>
+    <!--主体内容-->
+    <nz-content class="content">
+      <router-outlet></router-outlet>
+    </nz-content>
   </nz-layout>
 </nz-layout>
