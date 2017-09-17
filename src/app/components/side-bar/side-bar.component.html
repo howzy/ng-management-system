@@ -1,50 +1,26 @@
 <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed">
-  <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'" [nzInlineCollapsed]="isCollapsed">
-    <li nz-submenu>
+  <ul *ngIf="menu"  nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'" [nzInlineCollapsed]="isCollapsed">
+    <li nz-submenu *ngFor="let item of menu">
       <span title>
-        <i class="anticon anticon-shop"></i>
-        <span>店铺</span>
+        <i class="anticon" [ngClass]="item.icon"></i>
+        <span>{{ item.title }}</span>
       </span>
       <ul>
-        <li nz-menu-item><a [routerLink]="['/shop/info']">店铺信息</a></li>
-        <li nz-menu-item>门店分类</li>
-        <li nz-menu-item>店铺客服</li>
-        <li nz-menu-item>首页轮播</li>
-        <li nz-menu-item>首页按钮</li>
-      </ul>
-    </li>
-    <li nz-submenu>
-      <span title>
-        <i class="anticon anticon-appstore"></i>
-        <span>商品</span>
-      </span>
-      <ul>
-        <li nz-menu-item>添加商品</li>
-        <li nz-menu-item>待售商品</li>
-        <li nz-menu-item>出售中商品</li>
-        <li nz-menu-item>已售罄商品</li>
-        <li nz-submenu>
-          <span title>
-            商品分类
-          </span>
-          <ul>
-            <li nz-menu-item>规格分类</li>
-            <li nz-menu-item>品牌设置</li>
-            <li nz-menu-item>品牌分组</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li nz-submenu>
-      <span title>
-        <i class="anticon anticon-setting"></i>
-        <span>订单</span>
-      </span>
-      <ul>
-        <li nz-menu-item>订单概况</li>
-        <li nz-menu-item>销售订单</li>
-        <li nz-menu-item>售后订单</li>
-        <li nz-menu-item>批量发货</li>
+        <ng-container *ngFor="let subItem of item?.subs;let i = index;">
+          <li nz-menu-item *ngIf="!subItem?.subs" (click)="selectMenu(item, i)" >
+            <a [routerLink]="[subItem.path]">{{i}} - {{ subItem?.title }}</a>
+          </li>
+          <li nz-submenu *ngIf="subItem?.subs">
+            <span title>
+              {{ subItem?.title }}
+            </span>
+            <ul>
+              <li nz-menu-item *ngFor="let tertiaryItem of subItem?.subs;let j = index;" (click)="selectMenu(item, i, j)">
+                <a [routerLink]="[tertiaryItem.path]">{{ tertiaryItem.title }}</a>
+              </li>
+            </ul>
+          </li>
+        </ng-container>
       </ul>
     </li>
   </ul>
