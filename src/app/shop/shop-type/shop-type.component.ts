@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { NzModalService, NzMessageService } from 'ng-zorro-antd';
 
 import { fadeIn } from '../../animations/fade-in';
 import { ShopService } from '../services/shop.service';
@@ -11,12 +14,18 @@ import { ShopType } from '../model/shop';
   animations: [fadeIn]
 })
 export class ShopTypeComponent implements OnInit {
-  shopTypeList: ShopType[];
+  shopTypeList: ShopType[] = [];
   allChecked: boolean = false;
   indeterminate: boolean = false;
+  pageIndex: number = 1;
+  pageSize: number = 3;
+  loading: boolean = true;
 
   constructor(
-    private shopService: ShopService
+    private shopService: ShopService,
+    private confirmServ: NzModalService,
+    private messageServ: NzMessageService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,9 +33,34 @@ export class ShopTypeComponent implements OnInit {
   }
 
   getShopTypeList() {
+    this.loading = true;
     this.shopService.getShopTypeList().subscribe(res => {
+      this.loading = false;
       this.shopTypeList = res;
     });
+  }
+  
+  delShopTypeById(typeId) {
+    this.confirmServ.confirm({
+      title: '是否要删除该分类？',
+      onOk: () => {
+        this.shopService.delShopTypeById(typeId);
+        this.messageServ.success('删除成功！');
+      }
+    });
+  }
+
+  batchDel() {
+    this.confirmServ.confirm({
+      title: '是否批量删除分类？',
+      onOk: () => {
+        this.messageServ.success('删除成功！');
+      }
+    });
+  }
+
+  gotoEdit(typeId) {
+    this.router.navigate(['/shop/type/edit', typeId]);
   }
 
   updateAllChecked() {

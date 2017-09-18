@@ -8,6 +8,7 @@ import { ShopInfoComponent } from './shop-info/shop-info.component';
 import { ShopRoutingModule } from './shop-routing.module';
 import { ShopTypeComponent } from './shop-type/shop-type.component';
 import { ShopService } from './services/shop.service';
+import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { ShopService } from './services/shop.service';
   ],
   declarations: [
     ShopInfoComponent,
-    ShopTypeComponent
+    ShopTypeComponent,
+    ShopTypeEditComponent
   ],
   providers: [ShopService]
 })

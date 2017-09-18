@@ -21,4 +21,12 @@ export class ShopService {
       .catch(error => Observable.throw(error || 'Server error'));
   }
 
+  /**
+   * 根据 id 删除门店分类
+   * @param typeId 门店分类编号
+   */
+  delShopTypeById(typeId: number) {
+    //
+  }
+
 }

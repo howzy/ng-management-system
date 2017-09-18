@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from '../login/services/auth-guard.service';
 import { ShopInfoComponent } from './shop-info/shop-info.component';
 import { ShopTypeComponent } from './shop-type/shop-type.component';
+import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,13 @@ import { ShopTypeComponent } from './shop-type/shop-type.component';
           },
           {
             path: 'type',
-            component: ShopTypeComponent
+            component: ShopTypeComponent,
+            children: [
+              {
+                path: 'edit/:id',
+                component: ShopTypeEditComponent
+              }
+            ]
           }
         ]
       }
