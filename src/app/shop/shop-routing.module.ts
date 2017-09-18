@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { ShopInfoComponent } from './shop-info/shop-info.component';
 import { AuthGuard } from '../login/services/auth-guard.service';
+import { ShopInfoComponent } from './shop-info/shop-info.component';
+import { ShopTypeComponent } from './shop-type/shop-type.component';
 
 @NgModule({
   imports: [
@@ -14,10 +15,13 @@ import { AuthGuard } from '../login/services/auth-guard.service';
           {
             path: 'info',
             component: ShopInfoComponent
+          },
+          {
+            path: 'type',
+            component: ShopTypeComponent
           }
         ]
       }
-      // { path: 'info', component: ShopInfoComponent }
     ])
   ],
   exports: [RouterModule]
