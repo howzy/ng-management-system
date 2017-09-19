@@ -1,3 +1,45 @@
-<p>
-  shop-type-edit works!
-</p>
+<div class="shop-type-edit-container" [@fadeIn]>
+  <nz-breadcrumb style="margin: 24px 0 16px;">
+    <nz-breadcrumb-item>
+      <i class="anticon anticon-shop"></i>
+      <span>店铺</span>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>门店分类</nz-breadcrumb-item>
+    <nz-breadcrumb-item>分类编辑</nz-breadcrumb-item>
+  </nz-breadcrumb>
+
+  <form nz-form [formGroup]="shopTypeForm" (ngSubmit)="submitForm()">
+    <div nz-form-item nz-row>
+      <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+        <label for="typeName" nz-form-item-required>门店分组名称</label>
+      </div>
+      <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" [nzValidateStatus]="shopTypeForm.controls.typeName">
+        <nz-input [nzId]="'typeName'" [nzSize]="'large'" formControlName="typeName" [nzPlaceHolder]="'请输入门店分组名称'"></nz-input>
+        <div nz-form-explain *ngIf="shopTypeForm.controls.typeName.dirty&&shopTypeForm.controls.typeName.hasError('required')">请输入门店分组名称</div>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+        <label for="typeDesc">门店分组简介</label>
+      </div>
+      <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" [nzValidateStatus]="shopTypeForm.controls.typeDesc">
+        <nz-input [nzId]="'typeDesc'" [nzRows]="3" [nzType]="'textarea'" [nzSize]="'large'" formControlName="typeDesc" [nzPlaceHolder]="'请输入门店分组简介'"></nz-input>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+        <label for="ord">排序</label>
+      </div>
+      <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" [nzValidateStatus]="shopTypeForm.controls.ord">
+        <!--<nz-input [nzId]="'ord'" formControlName="ord" [nzPlaceHolder]="'请输入排序'" [nzSize]="'large'"></nz-input>-->
+        <nz-input-number formControlName="ord" [nzSize]="'large'" [nzStep]="1" [nzMin]="0"></nz-input-number>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="4">
+        <button nz-button [nzType]="'primary'" [nzSize]="'large'">确认</button>
+        <button type="button" nz-button [nzSize]="'large'" (click)="cancel()">取消</button>
+      </div>
+    </div>
+  </form>
+</div>

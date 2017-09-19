@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { NzModalService, NzMessageService } from 'ng-zorro-antd';
 
@@ -25,7 +25,8 @@ export class ShopTypeComponent implements OnInit {
     private shopService: ShopService,
     private confirmServ: NzModalService,
     private messageServ: NzMessageService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -59,8 +60,8 @@ export class ShopTypeComponent implements OnInit {
     });
   }
 
-  gotoEdit(typeId) {
-    this.router.navigate(['/shop/type/edit', typeId]);
+  gotoEdit(typeId?: string) {
+    this.router.navigate(['./edit', typeId], { relativeTo: this.route });
   }
 
   updateAllChecked() {

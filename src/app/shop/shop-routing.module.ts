@@ -20,12 +20,10 @@ import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component
           {
             path: 'type',
             component: ShopTypeComponent,
-            children: [
-              {
-                path: 'edit/:id',
-                component: ShopTypeEditComponent
-              }
-            ]
+          },
+          {
+            path: 'type/edit/:id',
+            component: ShopTypeEditComponent
           }
         ]
       }

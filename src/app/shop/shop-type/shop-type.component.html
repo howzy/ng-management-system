@@ -9,6 +9,7 @@
 
   <div class="toolbar">
     <button nz-button [nzType]="'primary'" [disabled]="!(allChecked || indeterminate)" (click)="batchDel()">批量删除</button>
+    <button nz-button [nzType]="'primary'" (click)="gotoEdit()">新增</button>
   </div>
   <nz-table #nzTable
     [nzDataSource]="shopTypeList"

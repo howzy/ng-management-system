@@ -22,6 +22,18 @@ export class ShopService {
   }
 
   /**
+   * 根据 ID 获取门店分类
+   * @param typeId 门店分类编号
+   */
+  getShopTypeById(typeId: number): Observable<ShopType> {
+    let url = 'mock-data/shop-type.json';
+    return this.http.get(url)
+      .map(res => {
+        return res.json().find(item => item.id === typeId);
+      })
+  }
+
+  /**
    * 根据 id 删除门店分类
    * @param typeId 门店分类编号
    */
