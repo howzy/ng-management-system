@@ -5,10 +5,20 @@
       <span>店铺</span>
     </nz-breadcrumb-item>
     <nz-breadcrumb-item>门店分类</nz-breadcrumb-item>
-    <nz-breadcrumb-item>分类编辑</nz-breadcrumb-item>
+    <nz-breadcrumb-item>{{ typeId ? '分类编辑' : '新增分类' }}</nz-breadcrumb-item>
   </nz-breadcrumb>
 
   <form nz-form [formGroup]="shopTypeForm" (ngSubmit)="submitForm()">
+    <div nz-form-item nz-row>
+      <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+        <label>门店分组图标</label>
+      </div>
+      <div nz-form-control nz-col [nzSm]="14" [nzXs]="24">
+        <input id="uploadInput" type="file" (change)="changeImg($event)" style="display: none;" multiple>
+        <!--<i class="anticon anticon-cloud-upload"></i>-->
+        <img id="uploadImg" src="" alt="" style="width: 100px;height: 100px;" (click)="chooseImg()" >
+      </div>
+    </div>
     <div nz-form-item nz-row>
       <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
         <label for="typeName" nz-form-item-required>门店分组名称</label>
@@ -31,7 +41,6 @@
         <label for="ord">排序</label>
       </div>
       <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" [nzValidateStatus]="shopTypeForm.controls.ord">
-        <!--<nz-input [nzId]="'ord'" formControlName="ord" [nzPlaceHolder]="'请输入排序'" [nzSize]="'large'"></nz-input>-->
         <nz-input-number formControlName="ord" [nzSize]="'large'" [nzStep]="1" [nzMin]="0"></nz-input-number>
       </div>
     </div>

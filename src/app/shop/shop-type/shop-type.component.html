@@ -8,15 +8,10 @@
   </nz-breadcrumb>
 
   <div class="toolbar">
-    <button nz-button [nzType]="'primary'" [disabled]="!(allChecked || indeterminate)" (click)="batchDel()">批量删除</button>
-    <button nz-button [nzType]="'primary'" (click)="gotoEdit()">新增</button>
+    <button nz-button [nzType]="'primary'" [disabled]="!(allChecked || indeterminate)" (click)="batchDel()"><i class="anticon anticon-delete"></i> 批量删除</button>
+    <button nz-button [nzType]="'primary'" (click)="gotoEdit()"><i class="anticon anticon-plus-circle-o"></i> 新增</button>
   </div>
-  <nz-table #nzTable
-    [nzDataSource]="shopTypeList"
-    [nzShowSizeChanger]="true"
-    [(nzPageIndex)]="pageIndex"
-    [(nzPageSize)]="pageSize"
-    >
+  <nz-table #nzTable [nzDataSource]="shopTypeList" [nzShowSizeChanger]="true" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize">
     <thead nz-thead>
       <tr>
         <th nz-th [nzCheckbox]="true">
@@ -43,7 +38,7 @@
         <td nz-td>
           <a (click)="gotoEdit(shopType.id)">编辑</a>
           <span nz-table-divider></span>
-          <a (click)="delShopTypeById(shopType.id)" >删除</a>
+          <a (click)="delShopTypeById(shopType.id)">删除</a>
         </td>
       </tr>
     </tbody>

@@ -22,7 +22,7 @@ import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component
             component: ShopTypeComponent,
           },
           {
-            path: 'type/edit/:id',
+            path: 'type/edit',
             component: ShopTypeEditComponent
           }
         ]

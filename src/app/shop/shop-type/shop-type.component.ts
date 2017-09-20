@@ -61,7 +61,7 @@ export class ShopTypeComponent implements OnInit {
   }
 
   gotoEdit(typeId?: string) {
-    this.router.navigate(['./edit', typeId], { relativeTo: this.route });
+    this.router.navigate(['./edit', typeId ? { id: typeId } : {}], { relativeTo: this.route });
   }
 
   updateAllChecked() {

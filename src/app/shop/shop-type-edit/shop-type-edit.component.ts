@@ -39,6 +39,7 @@ export class ShopTypeEditComponent implements OnInit {
 
   buildForm() {
     this.shopTypeForm = this.fb.group({
+      icon: [this.shopType.icon],
       typeName: [this.shopType.type_name, [Validators.required]],
       typeDesc: [this.shopType.type_desc],
       ord: [this.shopType.ord]
@@ -51,6 +52,7 @@ export class ShopTypeEditComponent implements OnInit {
 
       // 设置表单的值
       this.shopTypeForm.setValue({
+        icon: this.shopType.icon,
         typeName: this.shopType.type_name,
         typeDesc: this.shopType.type_desc,
         ord: this.shopType.ord
@@ -63,7 +65,20 @@ export class ShopTypeEditComponent implements OnInit {
   }
   
   cancel() {
-    //
+    this.router.navigate(['../'], { relativeTo: this.route });
+  }
+
+  chooseImg() {
+    document.getElementById("uploadInput").click();
+  }
+
+  changeImg(e) {
+    var file = e.target.files;
+    var myReader = new FileReader();
+    myReader.onload = (ev) => {
+      document.getElementById("uploadImg")["src"] = ev.target["result"];
+    }
+    myReader.readAsDataURL(file[0]);
   }
 
 }
