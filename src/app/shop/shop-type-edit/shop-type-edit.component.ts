@@ -68,17 +68,11 @@ export class ShopTypeEditComponent implements OnInit {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
-  chooseImg() {
-    document.getElementById("uploadInput").click();
-  }
-
-  changeImg(e) {
-    var file = e.target.files;
-    var myReader = new FileReader();
-    myReader.onload = (ev) => {
-      document.getElementById("uploadImg")["src"] = ev.target["result"];
-    }
-    myReader.readAsDataURL(file[0]);
+  getImgUrl(url: string) {
+    // 选取图片后，接收组件传递过来的 url，并设置表单的值
+    this.shopTypeForm.patchValue({
+      icon: url
+    })
   }
 
 }

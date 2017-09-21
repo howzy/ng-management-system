@@ -1,3 +1,6 @@
-<span class="upload-choose" (click)="uploadInput.click()" ><i class="anticon anticon-cloud-upload-o"></i></span>
-<input #uploadInput id="upload-input" type="file" (change)="changeImg($event)" multiple accept="image/jpeg,image/png,image/gif">
-<img src="assets/imgs/avatar.jpg" style="width: 80px; height: 80px;" alt="">
+<span *ngIf="!isChoosed" class="upload-choose" (click)="uploadInput.click()"><i class="anticon anticon-cloud-upload-o"></i></span>
+<input #uploadInput id="upload-input" type="file" (change)="changeImg($event.target)" accept="image/jpeg,image/png,image/gif">
+<div class="upload-preview" *ngIf="isChoosed">
+  <div class="cover" (click)="deletImg()"><i class="anticon anticon-delete"></i></div>
+  <div id="preview-img"><img [src]="imgUrl"></div>
+</div>

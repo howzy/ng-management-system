@@ -14,10 +14,7 @@
         <label>门店分组图标</label>
       </div>
       <div nz-form-control nz-col [nzSm]="14" [nzXs]="24">
-        <app-upload-image></app-upload-image>
-        <!--<input id="uploadInput" type="file" (change)="changeImg($event)" style="display: none;" multiple>-->
-        <!--<i class="anticon anticon-cloud-upload"></i>-->
-        <!--<img id="uploadImg" src="" alt="" style="width: 100px;height: 100px;" (click)="chooseImg()" >-->
+        <app-upload-image [imgUrl]="shopType.icon" (getImgUrl)="getImgUrl($event)"></app-upload-image>
       </div>
     </div>
     <div nz-form-item nz-row>
