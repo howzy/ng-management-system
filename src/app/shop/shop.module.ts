@@ -9,6 +9,7 @@ import { ShopRoutingModule } from './shop-routing.module';
 import { ShopTypeComponent } from './shop-type/shop-type.component';
 import { ShopService } from './services/shop.service';
 import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component';
+import { UploadImageComponent } from '../components/upload-image/upload-image.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component
   declarations: [
     ShopInfoComponent,
     ShopTypeComponent,
-    ShopTypeEditComponent
+    ShopTypeEditComponent,
+    UploadImageComponent
   ],
   providers: [ShopService]
 })

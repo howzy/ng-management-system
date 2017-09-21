@@ -1,0 +1,15 @@
+.upload-choose {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+}
+.upload-choose i {
+  font-size: 48px;
+  line-height: 80px;
+}
+#upload-input {
+  display: none;
+}
