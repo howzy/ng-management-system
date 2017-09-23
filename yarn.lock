@@ -1440,6 +1440,12 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
+echarts@^3.7.1:
+  version "3.7.1"
+  resolved "http://registry.npm.taobao.org/echarts/download/echarts-3.7.1.tgz#fad25d4b1cbb7ec28f1b0fa890e9a0d86056b2d5"
+  dependencies:
+    zrender "^3.6.1"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -5464,3 +5470,7 @@ yn@^2.0.0:
 zone.js@^0.8.14:
   version "0.8.17"
   resolved "http://registry.npm.taobao.org/zone.js/download/zone.js-0.8.17.tgz#4c5e5185a857da8da793daf3919371c5a36b2a0b"
+
+zrender@^3.6.1:
+  version "3.6.1"
+  resolved "http://registry.npm.taobao.org/zrender/download/zrender-3.6.1.tgz#362e8c4eb6c970a8d97c84daa8d65f37921b826b"
