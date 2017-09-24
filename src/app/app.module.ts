@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgZorroAntdModule, NZ_NOTIFICATION_CONFIG } from 'ng-zorro-antd';
+
+import { SharedModule } from "./shared/shared.module";
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
@@ -27,8 +28,7 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
     LoginModule,

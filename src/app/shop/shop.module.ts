@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from "../shared/shared.module";
 
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
@@ -9,21 +8,17 @@ import { ShopRoutingModule } from './shop-routing.module';
 import { ShopTypeComponent } from './shop-type/shop-type.component';
 import { ShopService } from './services/shop.service';
 import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component';
-import { UploadImageComponent } from '../components/upload-image/upload-image.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
     ShopRoutingModule,
     NgZorroAntdModule
   ],
   declarations: [
     ShopInfoComponent,
     ShopTypeComponent,
-    ShopTypeEditComponent,
-    UploadImageComponent
+    ShopTypeEditComponent
   ],
   providers: [ShopService]
 })
