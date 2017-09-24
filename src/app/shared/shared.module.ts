@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { UploadImageComponent } from "./components/upload-image/upload-image.component";
+import { EchartOptionDirective } from './directives/echart-option.directive';
 
 @NgModule({
   imports: [
@@ -11,13 +12,15 @@ import { UploadImageComponent } from "./components/upload-image/upload-image.com
     ReactiveFormsModule
   ],
   declarations: [
-    UploadImageComponent
+    UploadImageComponent,
+    EchartOptionDirective
   ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    UploadImageComponent
+    UploadImageComponent,
+    EchartOptionDirective
   ]
 })
 export class SharedModule { }
