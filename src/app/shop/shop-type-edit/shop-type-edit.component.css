@@ -1,3 +1,8 @@
+.shop-type-edit-container {
+  height: 100%;
+  background: #fff;
+}
 .shop-type-edit-container .ant-form-horizontal {
   max-width: 600px;
+  padding: 20px 20px 0;
 }

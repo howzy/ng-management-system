@@ -1,5 +1,5 @@
 <div class="shop-type-container" [@fadeIn]>
-  <nz-breadcrumb style="margin: 24px 0 16px;">
+  <nz-breadcrumb style="margin: 12px 0">
     <nz-breadcrumb-item>
       <i class="anticon anticon-shop"></i>
       <span>店铺</span>
@@ -11,16 +11,16 @@
     <button nz-button [nzType]="'primary'" [disabled]="!(allChecked || indeterminate)" (click)="batchDel()"><i class="anticon anticon-delete"></i> 批量删除</button>
     <button nz-button [nzType]="'primary'" (click)="gotoEdit()"><i class="anticon anticon-plus-circle-o"></i> 新增</button>
   </div>
-  <nz-table #nzTable [nzDataSource]="shopTypeList" [nzShowSizeChanger]="true" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize">
+  <nz-table class="table-with-image" #nzTable [nzDataSource]="shopTypeList" [nzShowSizeChanger]="true" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize">
     <thead nz-thead>
       <tr>
         <th nz-th [nzCheckbox]="true">
           <label nz-checkbox [(ngModel)]="allChecked" (ngModelChange)="updateAllChecked()" [nzIndeterminate]="indeterminate"></label>
         </th>
         <th nz-th><span>排序</span></th>
-        <th nz-th><span>门店分组图标</span></th>
-        <th nz-th><span>门店分组名称</span></th>
-        <th nz-th><span>门店分组简介</span></th>
+        <th nz-th><span>分类图标</span></th>
+        <th nz-th><span>分类名称</span></th>
+        <th nz-th><span>分类简介</span></th>
         <th nz-th><span>操作</span></th>
       </tr>
     </thead>

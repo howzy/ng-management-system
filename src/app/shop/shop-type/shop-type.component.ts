@@ -18,7 +18,7 @@ export class ShopTypeComponent implements OnInit {
   allChecked: boolean = false;
   indeterminate: boolean = false;
   pageIndex: number = 1;
-  pageSize: number = 3;
+  pageSize: number = 10;
   loading: boolean = true;
 
   constructor(

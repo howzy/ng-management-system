@@ -1,3 +1,8 @@
+.user-profile-container {
+  height: 100%;
+  background: #fff;
+}
 .user-profile-container .ant-form-horizontal {
-  max-width: 540px;
+  max-width: 600px;
+  padding: 20px 20px 0;
 }
