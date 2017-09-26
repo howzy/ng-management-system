@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+import { NgZorroAntdModule } from "ng-zorro-antd";
+
 import { UploadImageComponent } from "./components/upload-image/upload-image.component";
 import { EchartOptionDirective } from './directives/echart-option.directive';
 
@@ -9,7 +11,8 @@ import { EchartOptionDirective } from './directives/echart-option.directive';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgZorroAntdModule.forRoot()
   ],
   declarations: [
     UploadImageComponent,

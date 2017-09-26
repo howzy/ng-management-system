@@ -16,14 +16,22 @@
   display: none;
 }
 .upload-preview {
+  font-size: 0;
+  line-height: 1;
+}
+.upload-preview li {
   position: relative;
-  float: left;
+  display: inline-block;
+  /*float: left;*/
+  margin-top: 8px;
+  margin-right: 5px;
   font-size: 0;
   line-height: 1;
   border-radius: 4px;
   overflow: hidden;
 }
-.upload-preview img {
+.upload-preview img,
+.upload-preview li {
   width: 80px;
   height: 80px;
 }
@@ -36,7 +44,7 @@
   height: 100%;
   cursor: pointer;
 }
-.upload-preview:hover .cover {
+.upload-preview li:hover .cover {
   opacity: 1;
 }
 .upload-preview .cover i {
