@@ -1,0 +1,8 @@
+<div [formGroup]="form">
+  <div nz-form-label nz-col>
+    <label [attr.for]="field.key">{{field.label}}</label>
+  </div>
+  <div nz-form-control nz-col style="display: inline-block;">
+    <nz-input [nzId]="field.key" [formControlName]="field.key" [nzType]="field.type" [nzPlaceHolder]="field.placeholder" [nzSize]="'large'"></nz-input>
+  </div>
+</div>

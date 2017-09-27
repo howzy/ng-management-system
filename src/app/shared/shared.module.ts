@@ -6,6 +6,8 @@ import { NgZorroAntdModule } from "ng-zorro-antd";
 
 import { UploadImageComponent } from "./components/upload-image/upload-image.component";
 import { EchartOptionDirective } from './directives/echart-option.directive';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 
 @NgModule({
   imports: [
@@ -16,14 +18,17 @@ import { EchartOptionDirective } from './directives/echart-option.directive';
   ],
   declarations: [
     UploadImageComponent,
-    EchartOptionDirective
+    EchartOptionDirective,
+    ToolbarComponent,
+    DynamicFormComponent
   ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     UploadImageComponent,
-    EchartOptionDirective
+    EchartOptionDirective,
+    ToolbarComponent
   ]
 })
 export class SharedModule { }

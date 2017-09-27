@@ -6,6 +6,7 @@ import { NzModalService, NzMessageService } from 'ng-zorro-antd';
 import { fadeIn } from '../../animations/fade-in';
 import { ShopService } from '../services/shop.service';
 import { ShopType } from '../model/shop';
+import { FieldBase, Textbox  } from "../../shared/components/dynamic-form/form-field";
 
 @Component({
   selector: 'app-shop-type',
@@ -20,6 +21,15 @@ export class ShopTypeComponent implements OnInit {
   pageIndex: number = 1;
   pageSize: number = 10;
   loading: boolean = true;
+  
+  // 搜索栏条目
+  serachList: FieldBase<any>[] = [
+    new Textbox({
+      key: 'typeName',
+      label: '分类名称',
+      placeholder: '请输入分类名称关键词'
+    })
+  ]
 
   constructor(
     private shopService: ShopService,
@@ -31,6 +41,11 @@ export class ShopTypeComponent implements OnInit {
 
   ngOnInit() {
     this.getShopTypeList();
+  }
+
+  // 搜索
+  getSearchList(value) {
+    console.log(value);
   }
 
   getShopTypeList() {

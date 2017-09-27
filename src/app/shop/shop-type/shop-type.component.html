@@ -7,11 +7,11 @@
     <nz-breadcrumb-item>门店分类</nz-breadcrumb-item>
   </nz-breadcrumb>
 
-  <div class="toolbar">
-    <button nz-button [nzType]="'primary'" [disabled]="!(allChecked || indeterminate)" (click)="batchDel()"><i class="anticon anticon-delete"></i> 批量删除</button>
-    <button nz-button [nzType]="'primary'" (click)="gotoEdit()"><i class="anticon anticon-plus-circle-o"></i> 新增</button>
-  </div>
-  <nz-table class="table-with-image" #nzTable [nzDataSource]="shopTypeList" [nzShowSizeChanger]="true" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize">
+  <!--搜索栏-->
+  <app-toolbar *ngIf="serachList && serachList.length"  [serachList]="serachList" (getSearchList)="getSearchList($event)"></app-toolbar>
+
+  <nz-table class="table-with-image" #nzTable [nzDataSource]="shopTypeList" [nzShowSizeChanger]="true" [(nzPageIndex)]="pageIndex"
+    [(nzPageSize)]="pageSize">
     <thead nz-thead>
       <tr>
         <th nz-th [nzCheckbox]="true">
@@ -36,9 +36,9 @@
         <td nz-td>{{ shopType.type_name }}</td>
         <td nz-td>{{ shopType.type_desc }}</td>
         <td nz-td>
-          <a (click)="gotoEdit(shopType.id)">编辑</a>
+          <button nz-button nzType="primary" nzSize="small" [nzGhost]="true" (click)="gotoEdit(shopType.id)">编辑</button>
           <span nz-table-divider></span>
-          <a (click)="delShopTypeById(shopType.id)">删除</a>
+          <button nz-button nzType="danger" nzSize="small" [nzGhost]="true" (click)="delShopTypeById(shopType.id)">删除</button>
         </td>
       </tr>
     </tbody>

@@ -1,0 +1,12 @@
+<div class="box box-primary">
+  <form nz-form [nzLayout]="'inline'">
+    <div nz-form-item nz-row>
+      <div *ngFor="let field of fields" style="margin-right: 8px;">
+        <dynamic-form [form]="form" [field]="field"></dynamic-form>
+      </div>
+      <div nz-col>
+        <button (click)="search()"  type="button" nz-button [nzType]="'primary'" [nzSize]="'large'">搜索</button>
+      </div>
+    </div>
+  </form>
+</div>
