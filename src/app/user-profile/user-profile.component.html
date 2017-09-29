@@ -8,6 +8,14 @@
   <form nz-form [formGroup]="userProfileForm" (ngSubmit)="submitForm()">
     <div nz-form-item nz-row>
       <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+        <label>头像</label>
+      </div>
+      <div nz-form-control nz-col [nzSm]="14" [nzXs]="24">
+        <app-upload-image [imgUrl]="user.headImgUrl" (getImgUrl)="getImgUrl($event)"></app-upload-image>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
         <label for="userName" nz-form-item-required>用户名</label>
       </div>
       <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('userName')">

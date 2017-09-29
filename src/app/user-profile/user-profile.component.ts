@@ -29,11 +29,20 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('currentUser'));
+    console.log(this.user.headImgUrl);
     this.buildForm();
+  }
+
+  getImgUrl(url: string) {
+    // 选取图片后，接收组件传递过来的 url，并设置表单的值
+    this.userProfileForm.patchValue({
+      headImgUrl: url
+    });
   }
 
   buildForm() {
     this.userProfileForm = this.fb.group({
+      headImgUrl: this.user.headImgUrl,
       userName: [ this.user.userName, [ Validators.required ] ],
       password: [ null, [ Validators.required ] ],
       checkPassword: [ this.checkPassword, [ Validators.required, this.confirmationValidator ] ],
@@ -82,8 +91,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   submitForm() {
-    this.notificationServ.create('success', '用户中心', '个人信息修改成功');
-    this.location.back();
+    console.log(this.userProfileForm.value);
+    // this.notificationServ.create('success', '用户中心', '个人信息修改成功');
+    // this.location.back();
   }
 
 }

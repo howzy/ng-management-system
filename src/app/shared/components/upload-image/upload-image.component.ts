@@ -18,7 +18,7 @@ export class UploadImageComponent implements OnInit, OnChanges {
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
     for (let propName in changes) {
       let changedProp = changes[propName];
-      if (!changedProp.isFirstChange()) {
+      if (changedProp.currentValue) {
         this.isChoosed = true;
       }
     }
