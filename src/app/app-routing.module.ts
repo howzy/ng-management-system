@@ -21,8 +21,12 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
       },
       {
         path: 'shop',
-        loadChildren: 'app/shop/shop.module#ShopModule',
+        loadChildren: 'app/shop/shop.module#ShopModule'
       },
+      {
+        path: 'order',
+        loadChildren: 'app/order/order.module#OrderModule'
+      }
     ])
   ],
   exports: [RouterModule],

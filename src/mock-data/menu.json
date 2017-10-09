@@ -73,7 +73,7 @@
     "subs": [
       {
         "title": "订单概况",
-        "path": ""
+        "path": "/order/profile"
       },
       {
         "title": "销售订单",

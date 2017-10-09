@@ -1,0 +1,46 @@
+<div class="order-profile-container" [@fadeIn]>
+  <nz-breadcrumb style="margin: 12px 0">
+    <nz-breadcrumb-item>
+      <i class="anticon anticon-shop"></i>
+      <span>订单</span>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>订单概况</nz-breadcrumb-item>
+  </nz-breadcrumb>
+
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">数据统计</h3>
+    </div>
+    <div class="box-body item-list">
+      <div class="item">
+        <p>30天下单单数</p>
+        <p class="item-num">246</p>
+      </div>
+      <div class="item">
+        <p>待付款</p>
+        <p class="item-num">12</p>
+      </div>
+      <div class="item">
+        <p>待发货</p>
+        <p class="item-num">45</p>
+      </div>
+      <div class="item">
+        <p>售后积压</p>
+        <p class="item-num">2</p>
+      </div>
+      <div class="item">
+        <p>30天收入</p>
+        <p class="item-num">1000 元</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">30天订单趋势</h3>
+    </div>
+    <div class="box-body">
+      <echart [chartType]="option" class="my-echart"></echart>
+    </div>
+  </div>
+</div>
