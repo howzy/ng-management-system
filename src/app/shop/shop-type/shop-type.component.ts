@@ -67,12 +67,16 @@ export class ShopTypeComponent implements OnInit {
   }
 
   batchDel() {
-    this.confirmServ.confirm({
-      title: '是否批量删除分类？',
-      onOk: () => {
-        this.messageServ.success('删除成功！');
-      }
-    });
+    if (this.indeterminate || this.allChecked) {
+      this.confirmServ.confirm({
+        title: '是否批量删除分类？',
+        onOk: () => {
+          this.messageServ.success('删除成功！');
+        }
+      });
+    } else {
+      this.messageServ.create('warning', '请至少选择一行！');
+    }
   }
 
   gotoEdit(typeId?: string) {

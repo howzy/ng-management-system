@@ -8,7 +8,7 @@
   </nz-breadcrumb>
 
   <!--搜索栏-->
-  <app-toolbar *ngIf="serachList && serachList.length"  [serachList]="serachList" (getSearchList)="getSearchList($event)"></app-toolbar>
+  <app-toolbar *ngIf="serachList && serachList.length"  [serachList]="serachList" (getSearchList)="getSearchList($event)" (del)="batchDel()" [path]="'./edit'"></app-toolbar>
 
   <nz-table class="table-with-image" #nzTable [nzDataSource]="shopTypeList" [nzShowSizeChanger]="true" [(nzPageIndex)]="pageIndex"
     [(nzPageSize)]="pageSize">
