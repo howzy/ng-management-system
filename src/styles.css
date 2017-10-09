@@ -22,8 +22,8 @@ html, body {
  /* 表格 */
 .ant-table-wrapper {
   background: #fff;
-  border-radius: 4px;
-  border-top: 4px solid #d2d6de;
+  border-radius: 3px;
+  border-top: 3px solid #d2d6de;
   margin-bottom: 20px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
@@ -48,12 +48,24 @@ html, body {
 /* 表单 */
 .box {
   background: #fff;
-  border-radius: 4px;
-  border-top: 4px solid #d2d6de;
-  padding: 20px;
+  border-radius: 3px;
+  border-top: 3px solid #d2d6de;
+  /*padding: 20px;*/
   margin-bottom: 20px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
 .box.box-primary {
   border-top-color: #00c0ef;
+}
+.box .box-header.with-border {
+  border-bottom: 1px solid #f4f4f4;
+}
+.box .box-header .box-title {
+  color: #444;
+  display: block;
+  padding: 10px;
+  font-size: 14px;
+}
+.box-body {
+  padding: 10px;
 }

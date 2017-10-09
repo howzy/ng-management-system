@@ -1,20 +1,22 @@
 <div class="box box-primary">
-  <form nz-form [nzLayout]="'inline'">
-    <div nz-form-item nz-row class="mr">
-      <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="batchDel()" class="mr">
-        <i class="anticon anticon-delete"></i><span>批量删除</span>
-      </button>
-      <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="gotoAdd()" >
-        <i class="anticon anticon-plus-circle-o"></i><span>新增</span>
-      </button>
-    </div>
-    <div nz-form-item nz-row>
-      <div *ngFor="let field of fields" class="mr">
-        <dynamic-form [form]="form" [field]="field"></dynamic-form>
+  <div class="box-body">
+    <form nz-form [nzLayout]="'inline'">
+      <div nz-form-item nz-row class="mr">
+        <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="batchDel()" class="mr">
+          <i class="anticon anticon-delete"></i><span>批量删除</span>
+        </button>
+        <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="gotoAdd()" >
+          <i class="anticon anticon-plus-circle-o"></i><span>新增</span>
+        </button>
       </div>
-      <div nz-col>
-        <button (click)="search()"  type="button" nz-button [nzType]="'primary'" [nzSize]="'large'">搜索</button>
+      <div nz-form-item nz-row>
+        <div *ngFor="let field of fields" class="mr">
+          <dynamic-form [form]="form" [field]="field"></dynamic-form>
+        </div>
+        <div nz-col>
+          <button (click)="search()"  type="button" nz-button [nzType]="'primary'" [nzSize]="'large'">搜索</button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
