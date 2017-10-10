@@ -8,6 +8,7 @@ import { UploadImageComponent } from "./components/upload-image/upload-image.com
 import { EchartOptionDirective } from './directives/echart-option.directive';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { PublicFunction } from "./common/public-function";
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.com
     UploadImageComponent,
     EchartOptionDirective,
     ToolbarComponent
-  ]
+  ],
+  providers: [PublicFunction]
 })
 export class SharedModule { }
