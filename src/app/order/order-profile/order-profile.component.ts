@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { fadeIn } from "../../animations/fade-in";
+import { OrderService } from "../services/order.service";
+import { PublicFunction } from "../../shared/common/public-function";
 
 @Component({
   selector: 'app-order-profile',
@@ -14,64 +16,89 @@ export class OrderProfileComponent implements OnInit {
       trigger: 'axis'
     },
     legend: {
-      data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+      data: ['下单数','售后订单数']
     },
+    color: ['#fc9982', '#3c8dbc', '#00c0ef', '#d9ebb1', '#90d0c2', '#fee298', '#a9cce0', '#f2aeb9', '#bda2ee', "#bebc96"],
     grid: {
       left: '3%',
       right: '4%',
-      bottom: '3%',
       containLabel: true
-    },
-    toolbox: {
-      feature: {
-        saveAsImage: {}
-      }
     },
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+      data: [],
+      axisLabel: {
+        interval: 0,
+        rotate: 60
+      }
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
+      splitNumber: 1,
+      axisLabel: {
+        formatter: '{value} 单'
+      }
     },
     series: [
       {
-        name: '邮件营销',
+        name: '下单数',
         type: 'line',
-        stack: '总量',
-        data: [120, 132, 101, 134, 90, 230, 210]
+        data: [],
+        markPoint: {
+          data: [
+            {
+              type: 'max',
+              name: '最大值'
+            },
+            {
+              type: 'min',
+              name: '最小值'
+            }
+          ]
+        }
+      },
+      {
+        name: '售后订单数',
+        type: 'line',
+        data: [],
+        markPoint: {
+          data: [
+            {
+              type: 'max',
+              name: '最大值'
+            },
+            {
+              type: 'min',
+              name: '最小值'
+            }
+          ]
+        }
       }
-      // {
-      //   name: '联盟广告',
-      //   type: 'line',
-      //   stack: '总量',
-      //   data: [220, 182, 191, 234, 290, 330, 310]
-      // },
-      // {
-      //   name: '视频广告',
-      //   type: 'line',
-      //   stack: '总量',
-      //   data: [150, 232, 201, 154, 190, 330, 410]
-      // },
-      // {
-      //   name: '直接访问',
-      //   type: 'line',
-      //   stack: '总量',
-      //   data: [320, 332, 301, 334, 390, 330, 320]
-      // },
-      // {
-      //   name: '搜索引擎',
-      //   type: 'line',
-      //   stack: '总量',
-      //   data: [820, 932, 901, 934, 1290, 1330, 1320]
-      // }
     ]
   };
 
-  constructor() { }
+  constructor(
+    private orderService: OrderService
+  ) { }
 
   ngOnInit() {
+    // 获取前30天的日期数组
+    this.option.xAxis.data = PublicFunction.getDateArray(30);
+    
+    this.orderService.getOrderProfile().subscribe(res => {
+      let orderNum = [];
+      let refundNum = [];
+      let orderProfile = res;
+      orderProfile.forEach(item => {
+        orderNum.push(item.orderNum);
+        refundNum.push(item.refundNum);
+      });
+
+      this.option.series[0].data = orderNum;
+      this.option.series[1].data = refundNum;
+      this.option = Object.assign({}, this.option);
+    });
   }
 
 }
