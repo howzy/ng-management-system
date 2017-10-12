@@ -5,6 +5,7 @@ import { NgZorroAntdModule } from "ng-zorro-antd";
 
 import { OrderRoutingModule } from "./order-routing.module";
 import { OrderProfileComponent } from './order-profile/order-profile.component';
+import { OrderService } from "./services/order.service";
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { OrderProfileComponent } from './order-profile/order-profile.component';
     OrderRoutingModule,
     NgZorroAntdModule
   ],
-  declarations: [OrderProfileComponent]
+  declarations: [OrderProfileComponent],
+  providers: [OrderService]
 })
 export class OrderModule { }

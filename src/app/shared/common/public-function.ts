@@ -43,6 +43,6 @@ export class PublicFunction {
       dateArray.push(yDate + '-' + MDate + '-' + dDate);
       con.setDate(con.getDate() - 1);
     }
-    return dateArray;
+    return dateArray.reverse();
   }
 }
