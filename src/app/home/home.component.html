@@ -1,5 +1,4 @@
 <div class="home-container" [@fadeIn]>
-  <!--<echart [chartType]="option" class="my-echart"></echart>-->
   <div nz-row [nzGutter]="32">
     <div nz-col [nzXs]="12" [nzLg]="6">
       <div class="small-box bg-aqua">
@@ -10,7 +9,7 @@
         <div class="icon">
           <i class="anticon anticon-shopping-cart"></i>
         </div>
-        <a href="#" class="small-box-footer">查看详情 <i class="anticon anticon-arrow-right"></i></a>
+        <a [routerLink]="['/order/profile']" class="small-box-footer">查看详情 <i class="anticon anticon-arrow-right"></i></a>
       </div>
     </div>
     <div nz-col [nzXs]="12" [nzLg]="6">
