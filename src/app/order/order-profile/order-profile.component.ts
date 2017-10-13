@@ -97,6 +97,7 @@ export class OrderProfileComponent implements OnInit {
 
       this.option.series[0].data = orderNum;
       this.option.series[1].data = refundNum;
+      // 改变对象的引用，触发输入属性的 ngOnChanges 事件
       this.option = Object.assign({}, this.option);
     });
   }

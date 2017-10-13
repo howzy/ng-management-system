@@ -4,29 +4,32 @@ import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/debounceTime';
 
 import * as echarts from 'echarts';
+import Echarts = echarts.Echarts;
+import EchartOption = echarts.EchartOption;
 
 @Directive({
   selector: 'echart'
 })
 export class EchartOptionDirective implements OnInit, OnChanges {
-  @Input() chartType: any;
+  private chart: Echarts;
+
+  @Input() chartType: EchartOption;
 
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
+    this.chart = echarts.init(this.el.nativeElement);
+
     Observable.fromEvent(window, 'resize')
       .debounceTime(100)
       .subscribe(event => {
-        echarts.init(this.el.nativeElement).resize();
-      })
+        this.chart.resize();
+      });
   }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-    for (let propName in changes) {
-      let changedProp = changes[propName];
-      if (!changedProp.firstChange) {
-        echarts.init(this.el.nativeElement).setOption(this.chartType);
-      }
+    if (this.chartType && this.chart) {
+      this.chart.setOption(this.chartType);
     }
   }
 
