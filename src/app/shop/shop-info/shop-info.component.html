@@ -7,7 +7,9 @@
     <nz-breadcrumb-item>店铺信息</nz-breadcrumb-item>
   </nz-breadcrumb>
 
-  <textarea>
+  <text-editor [elementId]="'shopInfo'" (onEditorKeyup)="keyupHandlerFunction($event)"></text-editor>
+
+  <!--<textarea>
     <p><img title="TinyMCE Logo" src="https://www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" /></p>
     <h1>Welcome to TinyMCE 4.7!</h1>
     <p>Please try out this example of the world's favorite online rich text editor. When you are ready, <a href="https://www.tinymce.com/">sign up</a> to integrate TinyMCE into your application today.</p>
@@ -45,5 +47,5 @@
     <h2>Finally ...</h2>
     <p>Thanks for supporting TinyMCE! We hope it helps you and your users create great content.</p>
     <p><a href="https://www.tinymce.com/">Get started today!</a></p>
-  </textarea>
+  </textarea>-->
 </div>

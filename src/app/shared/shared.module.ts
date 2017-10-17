@@ -9,6 +9,7 @@ import { EchartOptionDirective } from './directives/echart-option.directive';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { PublicFunction } from "./common/public-function";
+import { TextEditorComponent } from './components/text-editor/text-editor.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { PublicFunction } from "./common/public-function";
     UploadImageComponent,
     EchartOptionDirective,
     ToolbarComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    TextEditorComponent
   ],
   exports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { PublicFunction } from "./common/public-function";
     ReactiveFormsModule,
     UploadImageComponent,
     EchartOptionDirective,
-    ToolbarComponent
+    ToolbarComponent,
+    TextEditorComponent
   ],
   providers: [PublicFunction]
 })
