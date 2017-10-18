@@ -10,42 +10,25 @@ export class TextEditorComponent implements AfterViewInit, OnDestroy {
 
   public editor;
 
-  fileInputChangeHandler(e): void {
-    let file = e.files[0];
-
-    let reader = new FileReader();
-    reader.onload = function () {
-      let base64 = reader.result.split(',')[1];
-    };
-    reader.readAsDataURL(file);
-  }
-
   ngAfterViewInit() {
+    //关于Tinymce的完整文档，请查看这里https://www.tinymce.com/docs/
     tinymce.init({
       selector: '#' + this.elementId,
       skin_url: '/assets/tinymce/skins/lightgray',
+      theme: 'modern',
+      height: 500,
       plugins: [
-        'advlist autolink lists link image charmap print preview anchor textcolor',
+        'advlist autosave autolink lists link image charmap print preview anchor textcolor wordcount',
         'searchreplace visualblocks code fullscreen',
         'insertdatetime media table contextmenu paste code help'
       ],
-      // file_browser_callback_types: 'image',
-      // file_browser_callback: function (file_name, url, type, win) {
-      //   if (type == 'image') {
-      //     let fileInput = document.getElementById('img_input');
-      //     fileInput.click();
-      //   }
-      // },
+      toolbar1: 'undo redo | formatselect | fontsizeselect | bold italic strikethrough forecolor backcolor | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat | link image',
       file_picker_types: 'image',
       file_picker_callback: function (cb, value, meta) {
-        var input = document.createElement('input');
-        input.setAttribute('type', 'file');
-        input.setAttribute('accept', 'image/*');
+        let fileInput = document.getElementById('img_input');
 
-        input.onchange = function (e) {
-          let dom = <HTMLInputElement>e.target;
-          let file = dom.files[0];
-          
+        fileInput.onchange = function (e) {
+          let file = e.target['files'][0];
 
           var reader = new FileReader();
           reader.onload = function () {
@@ -60,7 +43,7 @@ export class TextEditorComponent implements AfterViewInit, OnDestroy {
           reader.readAsDataURL(file);
         };
 
-        input.click();
+        fileInput.click();
       },
       setup: editor => {
         this.editor = editor;
