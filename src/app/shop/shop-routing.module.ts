@@ -5,6 +5,7 @@ import { AuthGuard } from '../login/services/auth-guard.service';
 import { ShopInfoComponent } from './shop-info/shop-info.component';
 import { ShopTypeComponent } from './shop-type/shop-type.component';
 import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component';
+import { MerchantComponent } from "./merchant/merchant.component";
 
 @NgModule({
   imports: [
@@ -24,6 +25,10 @@ import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component
           {
             path: 'type/edit',
             component: ShopTypeEditComponent
+          },
+          {
+            path: 'merchant',
+            component: MerchantComponent
           }
         ]
       }

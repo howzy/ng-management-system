@@ -13,8 +13,8 @@
         "path": "/shop/type"
       },
       {
-        "title": "店铺客服",
-        "path": ""
+        "title": "门店管理",
+        "path": "/shop/merchant"
       },
       {
         "title": "首页轮播",

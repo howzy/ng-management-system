@@ -1,0 +1,53 @@
+<div class="merchant-container" [@fadeIn]>
+  <nz-breadcrumb style="margin: 24px 0 16px;">
+    <nz-breadcrumb-item>
+      <i class="anticon anticon-shop"></i>
+      <span>店铺</span>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>门店管理</nz-breadcrumb-item>
+  </nz-breadcrumb>
+
+  <nz-table class="table-with-image" #nzTable [nzDataSource]="merchantList" [nzShowSizeChanger]="true" [(nzPageIndex)]="pageIndex"
+    [(nzPageSize)]="pageSize">
+    <thead nz-thead>
+      <tr>
+        <th nz-th [nzCheckbox]="true">
+          <label nz-checkbox [(ngModel)]="allChecked" (ngModelChange)="updateAllChecked()" [nzIndeterminate]="indeterminate"></label>
+        </th>
+        <th nz-th><span>门店图片</span></th>
+        <th nz-th><span>门店名称</span></th>
+        <th nz-th><span>地址</span></th>
+        <th nz-th><span>联系电话</span></th>
+        <th nz-th><span>推荐人账号</span></th>
+        <th nz-th><span>推荐人手机号</span></th>
+        <th nz-th><span>推荐人昵称</span></th>
+        <th nz-th><span>二维码</span></th>
+        <th nz-th><span>操作</span></th>
+      </tr>
+    </thead>
+    <tbody nz-tbody>
+      <tr nz-tbody-tr *ngFor="let merchant of nzTable.data">
+        <td nz-td [nzCheckbox]="true">
+          <label nz-checkbox [(ngModel)]="merchant.checked" (ngModelChange)="updateSingleChecked()"></label>
+        </td>
+        <td nz-td>
+          <img class="shop-type-icon" [src]="merchant.merchant_img">
+        </td>
+        <td nz-td>{{ merchant.merchant_name }}</td>
+        <td nz-td>{{ merchant.address_detail }}</td>
+        <td nz-td>{{ merchant.phone }}</td>
+        <td nz-td>{{ merchant.recommend_member_no }}</td>
+        <td nz-td>{{ merchant.recommend_phone }}</td>
+        <td nz-td>{{ merchant.recommend_nickname }}</td>
+        <td nz-td>
+          <img class="shop-type-icon" [src]="merchant.merchant_QRCode">
+        </td>
+        <!--<td nz-td>
+          <button nz-button nzType="primary" nzSize="small" [nzGhost]="true" (click)="gotoEdit(merchant.id)">编辑</button>
+          <span nz-table-divider></span>
+          <button nz-button nzType="danger" nzSize="small" [nzGhost]="true" (click)="delShopTypeById(shopType.id)">删除</button>
+        </td>-->
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

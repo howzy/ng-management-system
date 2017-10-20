@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { ShopType } from '../model/shop';
+import { Merchant } from "../model/merchant";
 
 @Injectable()
 export class ShopService {
@@ -41,4 +42,13 @@ export class ShopService {
     //
   }
 
+  /**
+   * 获取商户门店列表
+   */
+  getMerchantList(): Observable<[Merchant]> {
+    let url = 'mock-data/merchant.json';
+    return this.http.get(url)
+      .map(res => res.json())
+      .catch(error => Observable.throw(error || 'Server error'));
+  }
 }
