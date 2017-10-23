@@ -7,7 +7,10 @@
     <nz-breadcrumb-item>门店管理</nz-breadcrumb-item>
   </nz-breadcrumb>
 
-  <nz-table class="table-with-image" #nzTable [nzDataSource]="merchantList" [nzShowSizeChanger]="true" [(nzPageIndex)]="pageIndex"
+  <!--搜索栏-->
+  <app-toolbar *ngIf="serachList && serachList.length"  [serachList]="serachList" (getSearchList)="getSearchList($event)" (del)="batchDel()" [path]="'./edit'"></app-toolbar>
+
+  <nz-table *ngIf="merchantList" class="table-with-image" #nzTable [nzDataSource]="merchantList" [nzShowSizeChanger]="true" [(nzPageIndex)]="pageIndex"
     [(nzPageSize)]="pageSize">
     <thead nz-thead>
       <tr>
@@ -30,8 +33,8 @@
         <td nz-td [nzCheckbox]="true">
           <label nz-checkbox [(ngModel)]="merchant.checked" (ngModelChange)="updateSingleChecked()"></label>
         </td>
-        <td nz-td>
-          <img class="shop-type-icon" [src]="merchant.merchant_img">
+        <td nz-td (click)="showModal(merchant.merchant_img)">
+          <img class="with-modal" [src]="merchant.merchant_img">
         </td>
         <td nz-td>{{ merchant.merchant_name }}</td>
         <td nz-td>{{ merchant.address_detail }}</td>
@@ -39,15 +42,21 @@
         <td nz-td>{{ merchant.recommend_member_no }}</td>
         <td nz-td>{{ merchant.recommend_phone }}</td>
         <td nz-td>{{ merchant.recommend_nickname }}</td>
-        <td nz-td>
-          <img class="shop-type-icon" [src]="merchant.merchant_QRCode">
+        <td nz-td (click)="showModal(merchant.merchant_QRCode)">
+          <img class="with-modal" [src]="merchant.merchant_QRCode">
         </td>
-        <!--<td nz-td>
+        <td nz-td>
           <button nz-button nzType="primary" nzSize="small" [nzGhost]="true" (click)="gotoEdit(merchant.id)">编辑</button>
           <span nz-table-divider></span>
-          <button nz-button nzType="danger" nzSize="small" [nzGhost]="true" (click)="delShopTypeById(shopType.id)">删除</button>
-        </td>-->
+          <button nz-button nzType="danger" nzSize="small" [nzGhost]="true" (click)="delShopTypeById(merchant.id)">删除</button>
+        </td>
       </tr>
     </tbody>
   </nz-table>
 </div>
+
+<nz-modal [nzVisible]="isVisible" [nzTitle]="'图片预览'" [nzContent]="modalContent" (nzOnCancel)="handleCancel($event)" (nzOnOk)="handleOk($event)">
+  <ng-template #modalContent>
+    <img class="prevImg" *ngIf="selectedImg" [src]="selectedImg">
+  </ng-template>
+</nz-modal>
