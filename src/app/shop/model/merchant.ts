@@ -24,6 +24,8 @@ export class Merchant {
   phone: string;
   /** 门店折扣 */
   discount: number;
+  /** 门店分组 */
+  shop_type: string;
   /** 省编码 */
   provinceCode: string;
   /** 市编码 */

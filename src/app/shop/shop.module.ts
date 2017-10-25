@@ -9,6 +9,7 @@ import { ShopTypeComponent } from './shop-type/shop-type.component';
 import { ShopService } from './services/shop.service';
 import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component';
 import { MerchantComponent } from './merchant/merchant.component';
+import { MerchantEditComponent } from './merchant-edit/merchant-edit.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { MerchantComponent } from './merchant/merchant.component';
     ShopInfoComponent,
     ShopTypeComponent,
     ShopTypeEditComponent,
-    MerchantComponent
+    MerchantComponent,
+    MerchantEditComponent
   ],
   providers: [ShopService]
 })

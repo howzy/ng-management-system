@@ -1,0 +1,8 @@
+.merchant-edit-container {
+  height: 100%;
+  background: #fff;
+}
+.merchant-edit-container .ant-form-horizontal {
+  max-width: 600px;
+  padding: 20px 20px 0;
+}

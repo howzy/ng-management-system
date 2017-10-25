@@ -6,6 +6,7 @@ import { ShopInfoComponent } from './shop-info/shop-info.component';
 import { ShopTypeComponent } from './shop-type/shop-type.component';
 import { ShopTypeEditComponent } from './shop-type-edit/shop-type-edit.component';
 import { MerchantComponent } from "./merchant/merchant.component";
+import { MerchantEditComponent } from "./merchant-edit/merchant-edit.component";
 
 @NgModule({
   imports: [
@@ -29,6 +30,10 @@ import { MerchantComponent } from "./merchant/merchant.component";
           {
             path: 'merchant',
             component: MerchantComponent
+          },
+          {
+            path: 'merchant/edit',
+            component: MerchantEditComponent
           }
         ]
       }
