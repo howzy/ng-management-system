@@ -69,3 +69,8 @@ html, body {
 .box-body {
   padding: 10px;
 }
+
+/* 级联选择 */
+.ant-cascader-menu:nth-child(3) li::after {
+  content: none;
+}

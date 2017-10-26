@@ -1,7 +1,12 @@
 import { Injectable } from "@angular/core";
+import { Http } from "@angular/http";
 
 @Injectable()
 export class PublicFunction {
+
+  constructor(
+    private http: Http
+  ) { }
 
   /**
    * 格式化日期
@@ -44,5 +49,29 @@ export class PublicFunction {
       con.setDate(con.getDate() - 1);
     }
     return dateArray.reverse();
+  }
+
+  /**
+   * 获取省份信息
+   */
+  getProvinces() {
+    let url = 'mock-data/provinces.json';
+    return this.http.get(url).map(res => res.json());
+  }
+
+  /**
+   * 获取城市信息
+   */
+  getCities() {
+    let url = 'mock-data/cities.json';
+    return this.http.get(url).map(res => res.json());
+  }
+
+  /**
+   * 获取地区信息
+   */
+  getAreas() {
+    let url = 'mock-data/areas.json';
+    return this.http.get(url).map(res => res.json());
   }
 }

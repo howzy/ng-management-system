@@ -7,7 +7,8 @@
     <nz-breadcrumb-item>门店管理</nz-breadcrumb-item>
     <nz-breadcrumb-item>{{ typeId ? '门店编辑' : '新增门店' }}</nz-breadcrumb-item>
   </nz-breadcrumb>
-  
+
+<!--<nz-cascader [(ngModel)]="address" [nzPlaceHolder]="'请选择门店地址'" (nzLoad)="loadData($event)"></nz-cascader>-->
   <div nz-row>
     <div nz-col [nzMd]="24" [nzLg]="12">
       <form nz-form [formGroup]="merchantForm" (ngSubmit)="submitForm($event, merchantForm.value)">
@@ -21,9 +22,47 @@
             </div>
         </div>
         <div nz-form-item nz-row>
-          <nz-select style="width: 200px;" formControlName="shopType" [nzPlaceHolder]="'请选择门店分类'" [nzAllowClear]="true" [nzShowSearch]="true">
-            <nz-option *ngFor="let shopType of shopTypeList" [nzLabel]="shopType.type_name" [nzValue]="shopType.type_name"></nz-option>
-          </nz-select>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label for="shopType" nz-form-item-required>门店分组</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.shopType">
+            <nz-select formControlName="shopType" [nzPlaceHolder]="'请选择门店分类'" [nzAllowClear]="true" [nzShowSearch]="true">
+              <nz-option *ngFor="let shopType of shopTypeList" [nzLabel]="shopType.type_name" [nzValue]="shopType.type_name"></nz-option>
+            </nz-select>
+            <div nz-form-explain *ngIf="merchantForm.controls.shopType.dirty&&merchantForm.controls.shopType.hasError('required')">请选择门店分类</div>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label for="nickName">店长昵称</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.nickName">
+            <nz-input [nzId]="'nickName'" [nzSize]="'large'" formControlName="nickName" [nzPlaceHolder]="'请输入店长昵称'"></nz-input>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label for="discount">门店折扣</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.discount">
+            <nz-input-number [nzSize]="'large'" [nzMin]="0" [nzMax]="100" [nzStep]="1" formControlName="discount" [nzPlaceHolder]="'请输入门店折扣'"></nz-input-number>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+            <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+              <label for="phone">联系电话</label>
+            </div>
+            <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.phone">
+              <nz-input [nzId]="phone" [nzSize]="'large'" formControlName="phone" [nzPlaceHolder]="'请输入联系电话'"></nz-input>
+            </div>
+        </div>
+        <div nz-form-item nz-row>
+            <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+              <label for="address">门店地址</label>
+            </div>
+            <div nz-form-control nz-col [nzSm]="18" [nzXs]="24">
+              <nz-cascader formControlName="address" [nzPlaceHolder]="'请选择门店地址'" (nzLoad)="loadData($event)"></nz-cascader>
+            </div>
         </div>
       </form>
     </div>
