@@ -39,6 +39,8 @@ export class MerchantEditComponent implements OnInit {
 
     if (this.merchantId) {
       this.getMerchantById(this.merchantId);
+    } else {
+      this.getAddressInfo();
     }
 
     this.getShopTypeList();
@@ -56,8 +58,13 @@ export class MerchantEditComponent implements OnInit {
       phone: [this.merchant.phone],
       address: [this.address],
       addressDetail: [this.merchant.address_detail],
-      merchantDesc: [this.merchant.merchant_desc]
+      merchantDesc: [this.merchant.merchant_desc],
+      point: [null]
     });
+  }
+
+  submitForm(value) {
+    console.log(value);
   }
 
   // 根据门店 ID 获取门店信息
@@ -75,7 +82,8 @@ export class MerchantEditComponent implements OnInit {
         discount: this.merchant.discount,
         phone: this.merchant.phone,
         addressDetail: this.merchant.address_detail,
-        merchantDesc: this.merchant.merchant_desc
+        merchantDesc: this.merchant.merchant_desc,
+        point: [this.merchant.coordinate_x, this.merchant.coordinate_y]
       });
     });
   }
@@ -107,22 +115,26 @@ export class MerchantEditComponent implements OnInit {
 
   // 获取省市区信息
   getAddressInfo() {
-    let p,c,a;
+    let p, c, a;
     // 获取省
     this.publicFunction.getProvinces().subscribe(res => {
       this.provinces = res;
-      p = this.provinces.find(item => item.value == this.merchant.provinceCode);
-      this.address.push(p)
       // 获取市
       this.publicFunction.getCities().subscribe(res => {
         this.cities = res;
-        c = this.cities[this.merchant.provinceCode].find(item => item.value == this.merchant.cityCode);
-        this.address.push(c);
         // 获取地区
         this.publicFunction.getAreas().subscribe(res => {
           this.areas = res;
-          a = this.areas[this.merchant.cityCode].find(item => item.value == this.merchant.areaCode);
-          this.address.push(a);
+          if (this.merchantId) {
+            p = this.provinces.find(item => item.value == this.merchant.provinceCode);
+            this.address.push(p);
+
+            c = this.cities[this.merchant.provinceCode].find(item => item.value == this.merchant.cityCode);
+            this.address.push(c);
+
+            a = this.areas[this.merchant.cityCode].find(item => item.value == this.merchant.areaCode);
+            this.address.push(a);
+          }
 
           this.merchantForm.patchValue({
             address: this.address
@@ -130,6 +142,16 @@ export class MerchantEditComponent implements OnInit {
         });
       });
     });
+  }
+
+  // 获取地图定位
+  getPosition(pos) {
+    // this.merchantForm.value.point = pos;
+    console.log(pos);
+  }
+
+  cancel() {
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
 }
