@@ -19,6 +19,15 @@ html, body {
   background-color: #dd4b39 !important;
 }
 
+/* 页面元素 */
+.edit-content {
+  background: #fff;
+}
+.breadcrumb {
+  padding: 12px 0;
+  background: #ecf0f5;
+}
+
  /* 表格 */
 .ant-table-wrapper {
   background: #fff;

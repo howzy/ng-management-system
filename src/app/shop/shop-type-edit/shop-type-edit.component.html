@@ -1,5 +1,5 @@
 <div class="shop-type-edit-container" [@fadeIn]>
-  <nz-breadcrumb style="padding: 12px 0;background: #ecf0f5;">
+  <nz-breadcrumb class="breadcrumb">
     <nz-breadcrumb-item>
       <i class="anticon anticon-shop"></i>
       <span>店铺</span>
@@ -8,7 +8,7 @@
     <nz-breadcrumb-item>{{ typeId ? '分类编辑' : '新增分类' }}</nz-breadcrumb-item>
   </nz-breadcrumb>
 
-  <div nz-row>
+  <div nz-row class="edit-content">
     <div nz-col [nzMd]="24" [nzLg]="12">
       <form nz-form [formGroup]="shopTypeForm" (ngSubmit)="submitForm()">
         <div nz-form-item nz-row>
