@@ -10,6 +10,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { PublicFunction } from "./common/public-function";
 import { TextEditorComponent } from './components/text-editor/text-editor.component';
+import { AmapComponent } from './components/amap/amap.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { TextEditorComponent } from './components/text-editor/text-editor.compon
     EchartOptionDirective,
     ToolbarComponent,
     DynamicFormComponent,
-    TextEditorComponent
+    TextEditorComponent,
+    AmapComponent
   ],
   exports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { TextEditorComponent } from './components/text-editor/text-editor.compon
     UploadImageComponent,
     EchartOptionDirective,
     ToolbarComponent,
-    TextEditorComponent
+    TextEditorComponent,
+    AmapComponent
   ],
   providers: [PublicFunction]
 })
