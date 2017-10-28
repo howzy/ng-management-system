@@ -77,11 +77,11 @@
               <label for="point">地图坐标</label>
             </div>
             <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.point">
-              <button type="button" nz-button [nzGhost]="true" [nzType]="'primary'">
+              <button type="button" nz-button [nzGhost]="true" [nzType]="'primary'" (click)="showMap=!showMap" >
                 <i class="anticon anticon-environment"></i><span>点击获取</span>
               </button>
               <div nz-form-text *ngIf="merchantForm.value.point" style="padding-left: 8px;">{{merchantForm.value.point[0]}}, {{merchantForm.value.point[1]}}</div>
-              <amap [position]="merchantForm.value.point" (onSelect)="getPosition($event)"></amap>
+              <amap *ngIf="showMap"  [position]="merchantForm.value.point" (onSelect)="getPosition($event)"></amap>
             </div>
         </div>
         <div nz-form-item nz-row>

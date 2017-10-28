@@ -1,20 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'amap',
   templateUrl: './amap.component.html',
   styleUrls: ['./amap.component.css']
 })
-export class AmapComponent implements OnInit, OnChanges {
+export class AmapComponent implements OnInit {
   @Input() position: string[];
   @Output() onSelect = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     let map, marker, geolocation;
     // 初始化地图
     map = new AMap.Map('gaodemap-container', {
@@ -35,7 +32,6 @@ export class AmapComponent implements OnInit, OnChanges {
       marker.setPosition(e.lnglat);
       map.setCenter(e.lnglat);
       this.onSelect.emit([e.lnglat.getLng(), e.lnglat.getLat()]);
-      // console.log([e.lnglat.getLng(), e.lnglat.getLat()]);
     });
     // 地图插件
     map.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.Geolocation'], function () {
@@ -52,8 +48,8 @@ export class AmapComponent implements OnInit, OnChanges {
         buttonPosition: 'RB'     //定位按钮停靠位置，默认：'LB'，左下角
       });
       map.addControl(geolocation);
-      AMap.event.addListener(geolocation, 'complete', data => { });//返回定位信息
-      AMap.event.addListener(geolocation, 'error', err => { });//返回定位出错信息
+      AMap.event.addListener(geolocation, 'complete', data => { console.log('获取定位成功。') });//返回定位信息
+      AMap.event.addListener(geolocation, 'error', err => { console.log('获取定位失败。') });//返回定位出错信息
     });
 
     if (!this.position) {// 没有初始定位中心时，自动获取当前定位

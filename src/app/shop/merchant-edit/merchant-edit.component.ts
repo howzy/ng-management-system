@@ -146,8 +146,7 @@ export class MerchantEditComponent implements OnInit {
 
   // 获取地图定位
   getPosition(pos) {
-    // this.merchantForm.value.point = pos;
-    console.log(pos);
+    this.merchantForm.value.point = pos;
   }
 
   cancel() {
