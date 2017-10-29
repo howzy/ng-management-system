@@ -1,1 +1,9 @@
 <div id="gaodemap-container" class="gaodemap-container"></div>
+<div class="overlay" *ngIf="showInfoWindow" >
+  <div class="tips-title">温馨提示</div>
+  <div class="message">您拾取了坐标：{{position[0]}}, {{position[1]}}</div>
+  <div class="footer">
+    <button type="button" nz-button [nzSize]="'large'" (click)="showInfoWindow = false" >取消</button>
+    <button type="button" nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="selectPostion()" >确认</button>
+  </div>
+</div>

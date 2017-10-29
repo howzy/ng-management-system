@@ -6,6 +6,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./amap.component.css']
 })
 export class AmapComponent implements OnInit {
+  showInfoWindow: boolean;
+  
   @Input() position: string[];
   @Output() onSelect = new EventEmitter<any>();
 
@@ -30,8 +32,8 @@ export class AmapComponent implements OnInit {
     // 地图点击事件
     map.on('click', e => {
       marker.setPosition(e.lnglat);
-      map.setCenter(e.lnglat);
-      this.onSelect.emit([e.lnglat.getLng(), e.lnglat.getLat()]);
+      this.showInfoWindow = true;
+      this.position = [e.lnglat.getLng(), e.lnglat.getLat()];
     });
     // 地图插件
     map.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.Geolocation'], function () {
@@ -58,6 +60,11 @@ export class AmapComponent implements OnInit {
       map.setCenter(this.position);
       marker.setPosition(this.position);
     }
+  }
+
+  selectPostion() {
+    this.showInfoWindow = false;
+    this.onSelect.emit(this.position);
   }
 
 }

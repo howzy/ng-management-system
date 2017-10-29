@@ -23,6 +23,7 @@ export class MerchantEditComponent implements OnInit {
   cities: any[];
   areas: any[];
   address: any[] = [];
+  showMap: boolean;
 
   constructor(
     private router: Router,
@@ -147,6 +148,7 @@ export class MerchantEditComponent implements OnInit {
   // 获取地图定位
   getPosition(pos) {
     this.merchantForm.value.point = pos;
+    this.showMap = false;
   }
 
   cancel() {

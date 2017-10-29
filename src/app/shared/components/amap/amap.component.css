@@ -1,4 +1,48 @@
+:host() {
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 3;
+}
+:host():focus {
+  outline: 1px solid red;
+}
 .gaodemap-container {
   width: 800px;
   height: 500px;
+}
+.overlay {
+  position: absolute;
+  width: 300px;
+  height: 145px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.tips-title {
+  height: 38px;
+  line-height: 38px;
+  font-size: 13px;
+  border-bottom: 1px dashed #e9eaec;
+}
+.message {
+  flex: 1;
+  padding: 8px;
+  font-size: 12px;
+}
+.footer {
+  height: 38px;
+  text-align: right;
+  padding-right: 15px;
 }
