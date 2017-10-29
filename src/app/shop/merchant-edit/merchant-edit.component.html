@@ -12,13 +12,13 @@
     <div nz-col [nzMd]="24" [nzLg]="12">
       <form nz-form [formGroup]="merchantForm" (ngSubmit)="merchantForm.valid && submitForm(merchantForm.value)">
         <div nz-form-item nz-row>
-            <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
-              <label for="merchantName" nz-form-item-required>门店名称</label>
-            </div>
-            <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.merchantName">
-              <nz-input [nzId]="'merchantName'" [nzSize]="'large'" formControlName="merchantName" [nzPlaceHolder]="'请输入门店名称'"></nz-input>
-              <div nz-form-explain *ngIf="merchantForm.controls.merchantName.dirty&&merchantForm.controls.merchantName.hasError('required')">请输入门店名称</div>
-            </div>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label for="merchantName" nz-form-item-required>门店名称</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.merchantName">
+            <nz-input [nzId]="'merchantName'" [nzSize]="'large'" formControlName="merchantName" [nzPlaceHolder]="'请输入门店名称'"></nz-input>
+            <div nz-form-explain *ngIf="merchantForm.controls.merchantName.dirty&&merchantForm.controls.merchantName.hasError('required')">请输入门店名称</div>
+          </div>
         </div>
         <div nz-form-item nz-row>
           <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
@@ -41,6 +41,14 @@
         </div>
         <div nz-form-item nz-row>
           <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label>门店图片</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24">
+            <app-upload-image [imgUrl]="merchant.merchant_img" (getImgUrl)="getImgUrl($event)"></app-upload-image>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
             <label for="discount">门店折扣</label>
           </div>
           <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.discount">
@@ -49,47 +57,47 @@
           </div>
         </div>
         <div nz-form-item nz-row>
-            <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
-              <label for="phone">联系电话</label>
-            </div>
-            <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.phone">
-              <nz-input [nzId]="phone" [nzSize]="'large'" formControlName="phone" [nzPlaceHolder]="'请输入联系电话'"></nz-input>
-            </div>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label for="phone">联系电话</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.phone">
+            <nz-input [nzId]="phone" [nzSize]="'large'" formControlName="phone" [nzPlaceHolder]="'请输入联系电话'"></nz-input>
+          </div>
         </div>
         <div nz-form-item nz-row>
-            <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
-              <label for="address">门店地址</label>
-            </div>
-            <div nz-form-control nz-col [nzSm]="18" [nzXs]="24">
-              <nz-cascader formControlName="address" [nzPlaceHolder]="'请选择门店地址'" (nzLoad)="loadData($event)"></nz-cascader>
-            </div>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label for="address">门店地址</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24">
+            <nz-cascader formControlName="address" [nzPlaceHolder]="'请选择门店地址'" (nzLoad)="loadData($event)"></nz-cascader>
+          </div>
         </div>
         <div nz-form-item nz-row>
-            <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
-              <label for="addressDetail">详细地址</label>
-            </div>
-            <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.addressDetail">
-              <nz-input [nzId]="addressDetail" [nzSize]="'large'" formControlName="addressDetail" [nzPlaceHolder]="'请输入详细地址'"></nz-input>
-            </div>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label for="addressDetail">详细地址</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.addressDetail">
+            <nz-input [nzId]="addressDetail" [nzSize]="'large'" formControlName="addressDetail" [nzPlaceHolder]="'请输入详细地址'"></nz-input>
+          </div>
         </div>
         <div nz-form-item nz-row>
-            <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
-              <label for="point">地图坐标</label>
-            </div>
-            <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.point">
-              <button type="button" nz-button [nzGhost]="true" [nzType]="'primary'" (click)="showMap=!showMap;" >
-                <i class="anticon anticon-environment"></i><span>点击获取</span>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label for="point">地图坐标</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.point">
+            <button type="button" nz-button [nzGhost]="true" [nzType]="'primary'" (click)="showMap=!showMap;">
+              <i class="anticon anticon-environment"></i><span>点击获取</span>
               </button>
-              <div nz-form-text *ngIf="merchantForm.value.point" style="padding-left: 8px;">{{merchantForm.value.point[0]}}, {{merchantForm.value.point[1]}}</div>
-            </div>
+            <div nz-form-text *ngIf="merchantForm.value.point" style="padding-left: 8px;">{{merchantForm.value.point[0]}}, {{merchantForm.value.point[1]}}</div>
+          </div>
         </div>
         <div nz-form-item nz-row>
-            <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
-              <label for="merchantDesc">门店简介</label>
-            </div>
-            <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.merchantDesc">
-              <nz-input [nzId]="'merchantDesc'" [nzRows]="3" [nzType]="'textarea'" [nzSize]="'large'" formControlName="merchantDesc" [nzPlaceHolder]="'请输入门店简介'"></nz-input>
-            </div>
+          <div nz-form-label nz-col [nzSm]="4" [nzXs]="24">
+            <label for="merchantDesc">门店简介</label>
+          </div>
+          <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.merchantDesc">
+            <nz-input [nzId]="'merchantDesc'" [nzRows]="3" [nzType]="'textarea'" [nzSize]="'large'" formControlName="merchantDesc" [nzPlaceHolder]="'请输入门店简介'"></nz-input>
+          </div>
         </div>
         <div nz-form-item nz-row>
           <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="4">
@@ -100,7 +108,7 @@
       </form>
     </div>
 
-    
-    <amap *ngIf="showMap"  [position]="merchantForm.value.point" (onSelect)="getPosition($event)"></amap>
+
+    <amap *ngIf="showMap" [position]="merchantForm.value.point" (onSelect)="getPosition($event)"></amap>
   </div>
 </div>

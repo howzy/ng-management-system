@@ -60,7 +60,8 @@ export class MerchantEditComponent implements OnInit {
       address: [this.address],
       addressDetail: [this.merchant.address_detail],
       merchantDesc: [this.merchant.merchant_desc],
-      point: [null]
+      point: [null],
+      merchantImg: [this.merchant.merchant_img]
     });
   }
 
@@ -84,7 +85,8 @@ export class MerchantEditComponent implements OnInit {
         phone: this.merchant.phone,
         addressDetail: this.merchant.address_detail,
         merchantDesc: this.merchant.merchant_desc,
-        point: [this.merchant.coordinate_x, this.merchant.coordinate_y]
+        point: [this.merchant.coordinate_x, this.merchant.coordinate_y],
+        merchantImg: this.merchant.merchant_img
       });
     });
   }
@@ -149,6 +151,13 @@ export class MerchantEditComponent implements OnInit {
   getPosition(pos) {
     this.merchantForm.value.point = pos;
     this.showMap = false;
+  }
+
+  getImgUrl(url: string) {
+    // 选取图片后，接收组件传递过来的 url，并设置表单的值
+    this.merchantForm.patchValue({
+      merchantImg: url
+    })
   }
 
   cancel() {
