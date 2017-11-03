@@ -5,7 +5,7 @@
       <span>店铺</span>
     </nz-breadcrumb-item>
     <nz-breadcrumb-item>门店管理</nz-breadcrumb-item>
-    <nz-breadcrumb-item>{{ typeId ? '门店编辑' : '新增门店' }}</nz-breadcrumb-item>
+    <nz-breadcrumb-item>{{ merchantId ? '门店编辑' : '新增门店' }}</nz-breadcrumb-item>
   </nz-breadcrumb>
 
   <div nz-row class="edit-content">
@@ -61,7 +61,7 @@
             <label for="phone">联系电话</label>
           </div>
           <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.phone">
-            <nz-input [nzId]="phone" [nzSize]="'large'" formControlName="phone" [nzPlaceHolder]="'请输入联系电话'"></nz-input>
+            <nz-input [nzId]="'phone'" [nzSize]="'large'" formControlName="phone" [nzPlaceHolder]="'请输入联系电话'"></nz-input>
           </div>
         </div>
         <div nz-form-item nz-row>
@@ -77,7 +77,7 @@
             <label for="addressDetail">详细地址</label>
           </div>
           <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" [nzValidateStatus]="merchantForm.controls.addressDetail">
-            <nz-input [nzId]="addressDetail" [nzSize]="'large'" formControlName="addressDetail" [nzPlaceHolder]="'请输入详细地址'"></nz-input>
+            <nz-input [nzId]="'addressDetail'" [nzSize]="'large'" formControlName="addressDetail" [nzPlaceHolder]="'请输入详细地址'"></nz-input>
           </div>
         </div>
         <div nz-form-item nz-row>

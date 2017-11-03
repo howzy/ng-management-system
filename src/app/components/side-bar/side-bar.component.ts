@@ -9,6 +9,7 @@ import { Menu, SideBar } from './model/menu';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
+  isCollapsed: boolean = false;
   menu: Menu;
 
   constructor(
