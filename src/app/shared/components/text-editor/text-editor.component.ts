@@ -14,7 +14,7 @@ export class TextEditorComponent implements AfterViewInit, OnDestroy {
     //关于Tinymce的完整文档，请查看这里https://www.tinymce.com/docs/
     tinymce.init({
       selector: '#' + this.elementId,
-      skin_url: '/assets/tinymce/skins/lightgray',
+      skin_url: './assets/tinymce/skins/lightgray',
       theme: 'modern',
       height: 500,
       plugins: [
@@ -52,7 +52,7 @@ export class TextEditorComponent implements AfterViewInit, OnDestroy {
           this.onEditorKeyup.emit(content);
         });
       },
-      language_url: '/assets/tinymce/langs/zh_CN.js'
+      language_url: './assets/tinymce/langs/zh_CN.js'
     });
   }
 
