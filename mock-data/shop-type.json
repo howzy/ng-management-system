@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "icon": "assets/imgs/shop_type_1.png",
+    "type_name": "美食",
+    "type_desc": "美食分组简介...",
+    "ord": 1
+  },
+  {
+    "id": "2",
+    "icon": "assets/imgs/shop_type_2.png",
+    "type_name": "酒店",
+    "type_desc": "酒店分组简介...",
+    "ord": 2
+  },
+  {
+    "id": "3",
+    "icon": "assets/imgs/shop_type_3.png",
+    "type_name": "休闲娱乐",
+    "type_desc": "休闲娱乐分组简介...",
+    "ord": 3
+  },
+  {
+    "id": "4",
+    "icon": "assets/imgs/shop_type_4.png",
+    "type_name": "丽人/美发",
+    "type_desc": "丽人/美发分组简介...",
+    "ord": 4
+  },
+  {
+    "id": "5",
+    "icon": "assets/imgs/shop_type_5.png",
+    "type_name": "学习培训",
+    "type_desc": "学习培训分组简介...",
+    "ord": 5
+  },
+  {
+    "id": "6",
+    "icon": "assets/imgs/shop_type_6.png",
+    "type_name": "生活服务",
+    "type_desc": "生活服务分组简介...",
+    "ord": 6
+  },
+  {
+    "id": "7",
+    "icon": "assets/imgs/shop_type_7.png",
+    "type_name": "爱车",
+    "type_desc": "爱车分组简介...",
+    "ord": 7
+  },
+  {
+    "id": "8",
+    "icon": "assets/imgs/shop_type_8.png",
+    "type_name": "结婚/摄影",
+    "type_desc": "结婚/摄影分组简介...",
+    "ord": 8
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "icon": "anticon-shop",
+    "title": "店铺",
+    "ord": 1,
+    "subs": [
+      {
+        "title": "店铺信息",
+        "path": "/shop/info"
+      },
+      {
+        "title": "门店分类",
+        "path": "/shop/type"
+      },
+      {
+        "title": "门店管理",
+        "path": "/shop/merchant"
+      },
+      {
+        "title": "首页轮播",
+        "path": ""
+      },
+      {
+        "title": "首页按钮",
+        "path": ""
+      }
+    ]
+  },
+  {
+    "icon": "anticon-appstore",
+    "title": "商品",
+    "ord": 2,
+    "subs": [
+      {
+        "title": "添加商品",
+        "path": ""
+      },
+      {
+        "title": "待售商品",
+        "path": ""
+      },
+      {
+        "title": "出售中商品",
+        "path": ""
+      },
+      {
+        "title": "已售罄商品",
+        "path": ""
+      },
+      {
+        "title": "商品分类",
+        "subs": [
+          {
+            "title": "规格分类",
+            "path": ""
+          },
+          {
+            "title": "品牌设置",
+            "path": ""
+          },
+          {
+            "title": "品牌分组",
+            "path": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "icon": "anticon-shopping-cart",
+    "title": "订单",
+    "ord": 3,
+    "subs": [
+      {
+        "title": "订单概况",
+        "path": "/order/profile"
+      },
+      {
+        "title": "销售订单",
+        "path": ""
+      },
+      {
+        "title": "售后订单",
+        "path": ""
+      },
+      {
+        "title": "批量发货",
+        "path": ""
+      }
+    ]
+  }
+]
