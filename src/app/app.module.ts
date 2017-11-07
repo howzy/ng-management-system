@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { NgZorroAntdModule, NZ_NOTIFICATION_CONFIG } from 'ng-zorro-antd';
 
 import { SharedModule } from "./shared/shared.module";
@@ -35,6 +36,10 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
     AppRoutingModule
   ],
   providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
     {
       provide: NZ_NOTIFICATION_CONFIG,
       useValue: { nzTop: '76px' }
