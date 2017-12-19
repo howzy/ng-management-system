@@ -19,7 +19,7 @@ export class MerchantComponent implements OnInit {
   allChecked: boolean = false;
   indeterminate: boolean = false;
   pageIndex: number = 1;
-  pageSize: number = 10;
+  pageSize: number = 7;
   loading: boolean = true;
   isVisible = false;
   selectedImg: string;

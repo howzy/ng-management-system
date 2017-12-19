@@ -1,28 +1,41 @@
-# NgManagementSystem
+# ng-management-system
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
+基于 Angular2 + NG-ZORRO 的后台管理系统。[线上地址](https://zhouhao.me/ng-management-system/)
 
-## Development server
+## 功能
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [x] 登录/注销
+- [x] 表格
+- [x] 表单
+- [x] 图表: Echart
+- [x] 富文本编辑器
+- [x] 图片上传
+- [x] 图片预览
 
-## Code scaffolding
+## 安装步骤
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+```
+git clone https://github.com/howzy/ng-management-system.git      // 把项目下载到本地
+cd ng-management-system    // 进入项目目录
+npm install         // 安装项目依赖，等待安装完成之后
+```
 
-## Build
+## 本地开发
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```
+// 开启服务器，浏览器访问 http://localhost:4200
+npm start
+```
 
-## Running unit tests
+## 构建生产
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+// 执行构建命令，生成的dist文件夹放在服务器下即可访问
+npm build
+```
 
-## Running end-to-end tests
+## 项目截图
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![merchant](src/assets/project/merchant.png)
+![merchant-edit](src/assets/project/merchant-edit.png)
+![order-profile](src/assets/project/order-profile.png)
