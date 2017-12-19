@@ -1,5 +1,5 @@
 <div class="login">
-  <form class="login-form" nz-form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && doLogin()" novalidate>
+  <form class="login-form" nz-form [formGroup]="loginForm" (ngSubmit)="doLogin()" novalidate>
     <div nz-form-item class="login-form-title">后台管理系统</div>
     <div nz-form-item>
       <div nz-form-control [nzValidateStatus]="loginForm.controls.userName">

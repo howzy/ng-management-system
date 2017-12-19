@@ -33,6 +33,12 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
+    for (const i in this.loginForm.controls) {
+      this.loginForm.controls[ i ].markAsDirty();
+    }
+
+    if (this.loginForm.invalid) return;
+
     this.userInfo = this.loginForm.value;
     this.loginService.login(this.loginForm.value);
     
